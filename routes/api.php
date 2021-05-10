@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\MetaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,21 @@ Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
 
 
 
+
+/*
+|--------------------------------------------------------------------------
+| Images Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/images', [ImagesController::class, 'store'])->name('images.store');
+
+/*
+|--------------------------------------------------------------------------
+| Meta Routes
+|--------------------------------------------------------------------------
+*/
+Route::apiResource( 'meta', MetaController::class )->except(['store', 'destroy']);
+Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
 
 
 Route::group([
