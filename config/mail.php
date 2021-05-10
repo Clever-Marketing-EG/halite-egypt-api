@@ -1,5 +1,8 @@
 <?php
 
+define('MAIL_SENDER', env('MAIL_SENDER', 'noreply@halite-egypt.com'));
+define('MAIL_RECIEVER', env('MAIL_RECIEVER', 'info@halite-egypt.com'));
+
 return [
 
     /*
