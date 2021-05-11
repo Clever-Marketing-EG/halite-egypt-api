@@ -25,7 +25,11 @@ class MetaController extends ResourceController
             array_push( $arr[$metum['page']], $metum );
         }
 
-        return $this->jsonResponse( $arr );
+        // return $this->jsonResponse( $arr );
+        return response()->json([
+            'success' => true,
+            'data' => $arr
+        ]);
 
     }
 
