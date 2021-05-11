@@ -41,7 +41,7 @@ class MetaController extends ResourceController
 
     }
 
-    /**
+     /**
     * Display the specified resource.
     *
     * @param  \App\Models\Meta  $meta
@@ -49,6 +49,19 @@ class MetaController extends ResourceController
     */
 
     public function show( Meta $metum ): jsonResponse {
+
+        $metum = $metum->loadLocale();
+        return $this->jsonResponse( $metum );
+
+    }
+    /**
+    * Display the specified resource.
+    *
+    * @param  \App\Models\Meta  $meta
+    * @return \Illuminate\Http\JsonResponse
+    */
+
+    public function showFull( Meta $metum ): jsonResponse {
         return $this->jsonResponse( $metum );
 
     }

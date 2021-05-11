@@ -3,9 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MetaController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,26 @@ use App\Http\Controllers\MetaController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+/*
+|--------------------------------------------------------------------------
+| Categories Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::apiResource( 'categories', CategoryController::class );
+Route::get('dashboard/categories/{category}',[CategoryController::class, 'showFull']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Products Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::apiResource( 'products', ProductController::class );
+Route::get('dashboard/products/{product}',[ProductController::class, 'showFull']);
+
 
 
 /*
@@ -40,6 +59,7 @@ Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
 */
 Route::post('/images', [ImagesController::class, 'store'])->name('images.store');
 
+
 /*
 |--------------------------------------------------------------------------
 | Meta Routes
@@ -47,6 +67,7 @@ Route::post('/images', [ImagesController::class, 'store'])->name('images.store')
 */
 Route::apiResource( 'meta', MetaController::class )->except(['store', 'destroy']);
 Route::get('dashboard/meta',[MetaController::class, 'fullIndex']);
+Route::get('dashboard/meta/{metum}',[MetaController::class, 'showFull']);
 
 
 Route::group([
