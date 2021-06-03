@@ -13,7 +13,14 @@ class Product extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+
+        'image_url' => 'array'
+    ];
+
+
     public $timestamps = false;
+
 
     public static function validate(Request $request): array
     {
@@ -22,7 +29,8 @@ class Product extends Model
             'name_ar' => 'required|string|min:3',
             'description' => 'required|string|min:3',
             'description_ar' => 'required|string|min:3',
-            'image_url' => 'required|url',
+            'image_url' => 'array|nullable',
+            'image_url.*' => 'required|url',
             'category_id' => 'required|integer|exists:categories,id'
 
 
@@ -32,18 +40,18 @@ class Product extends Model
 
     public static function loadEnglish()
     {
-      return Product::select('id', 'name', 'description', 'image_url')
-      ->get()
-      ->toArray();
+        return Product::select('id', 'name', 'description', 'image_url')
+            ->get()
+            ->toArray();
     }
     public static function loadArabic()
     {
-      return Product::select('id', 'name_ar as name', 'description_ar as description', 'image_url')
-      ->get()
-      ->toArray();
+        return Product::select('id', 'name_ar as name', 'description_ar as description', 'image_url')
+            ->get()
+            ->toArray();
     }
 
-       /**
+    /**
      * Loads local version of the Category
      *
      * @return mixed
@@ -61,5 +69,4 @@ class Product extends Model
             ]);
         }
     }
-
 }

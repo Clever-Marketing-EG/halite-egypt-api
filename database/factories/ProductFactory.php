@@ -26,7 +26,8 @@ class ProductFactory extends Factory
             'name_ar' => $this->faker->word,
             'description' => $this->faker->text,
             'description_ar' => $this->faker->text,
-            'image_url' => $this->faker->imageUrl()
+            'image_url' => [$this->faker->imageUrl(), $this->faker->imageUrl()]
+
         ];
     }
 }
