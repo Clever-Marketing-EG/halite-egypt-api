@@ -33,7 +33,21 @@ class MetaSeeder extends Seeder
                 'page' => 'home'
             ],
             [
-                'name' => 'intro_image',
+                'name' => 'intro_image_1',
+                'content' => 'Header !',
+                'content_ar' => 'محتوى',
+                'type' => 'image',
+                'page' => 'home'
+            ],
+            [
+                'name' => 'intro_image_2',
+                'content' => 'Header !',
+                'content_ar' => 'محتوى',
+                'type' => 'image',
+                'page' => 'home'
+            ],
+            [
+                'name' => 'intro_image_3',
                 'content' => 'Header !',
                 'content_ar' => 'محتوى',
                 'type' => 'image',
