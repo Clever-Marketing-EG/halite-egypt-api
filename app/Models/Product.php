@@ -27,7 +27,7 @@ class Product extends LocalizableModel
         return $request->validate([
             'name_en' => 'required|string|min:3',
             'name_ar' => 'required|string|min:3',
-            'description' => 'required',
+            'description_en' => 'required',
             'description_ar' => 'required',
             'image_url' => 'array|nullable',
             'image_url.*' => 'required|url',
