@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CategoryController;
@@ -28,6 +27,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::apiResource( 'categories', CategoryController::class );
+Route::get('dashboard/categories',[CategoryController::class, 'indexFull']);
 Route::get('dashboard/categories/{category}',[CategoryController::class, 'showFull']);
 
 
@@ -38,6 +38,7 @@ Route::get('dashboard/categories/{category}',[CategoryController::class, 'showFu
 */
 
 Route::apiResource( 'products', ProductController::class );
+Route::get('dashboard/products',[ProductController::class, 'indexFull']);
 Route::get('dashboard/products/{product}',[ProductController::class, 'showFull']);
 
 

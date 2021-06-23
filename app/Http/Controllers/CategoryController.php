@@ -11,11 +11,11 @@ class CategoryController extends ResourceController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index(): JsonResponse
     {
-        $categories = trans('categories');
+        $categories = Category::all();
         return $this->jsonResponse($categories);
     }
 
@@ -23,62 +23,75 @@ class CategoryController extends ResourceController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
         $validated = Category::validate($request);
         $category = Category::create($validated);
-        return $this->jsonResponse($category, 201);
+        return $this->jsonResponse($category->viewFull(), 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return JsonResponse
      */
     public function show(Category $category): JsonResponse
     {
-        $category = $category->loadLocale();
         return $this->jsonResponse($category);
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function showFull(Category $category): JsonResponse
-    {
-        return $this->jsonResponse($category);
-    }
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Category $category
+     * @return JsonResponse
      */
     public function update(Request $request, Category $category): JsonResponse
     {
         $validated = Category::validate($request);
         $category->update($validated);
-        return $this->jsonResponse($category);
+        return $this->jsonResponse($category->viewFull());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return JsonResponse
      */
     public function destroy(Category $category): JsonResponse
     {
         $category->delete();
-        return $this->jsonResponse($category);
+        return $this->jsonResponse($category->viewFull());
+    }
+
+
+    /**
+     * Full index for the dashboard
+     *
+     * @return JsonResponse
+     */
+    public function indexFull(): JsonResponse
+    {
+        $categories = Category::allFull();
+        return $this->jsonResponse($categories);
+    }
+
+
+    /**
+     * View full info for the dashboard
+     *
+     * @param Category $category
+     * @return JsonResponse
+     */
+    public function showFull(Category $category): JsonResponse
+    {
+        return $this->jsonResponse($category->viewFull());
     }
 }

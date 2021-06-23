@@ -22,9 +22,9 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->word,
+            'name_en' => $this->faker->word,
             'name_ar' => $this->faker->word,
-            'description' => $this->faker->text,
+            'description_en' => $this->faker->text,
             'description_ar' => $this->faker->text,
             'image_url' => [$this->faker->imageUrl(), $this->faker->imageUrl()]
 
