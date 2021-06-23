@@ -30,7 +30,7 @@ class CategoryController extends ResourceController
     {
         $validated = Category::validate($request);
         $category = Category::create($validated);
-        return $this->jsonResponse($category, 201);
+        return $this->jsonResponse($category->viewFull(), 201);
     }
 
     /**
@@ -56,7 +56,7 @@ class CategoryController extends ResourceController
     {
         $validated = Category::validate($request);
         $category->update($validated);
-        return $this->jsonResponse($category);
+        return $this->jsonResponse($category->viewFull());
     }
 
     /**
@@ -68,7 +68,7 @@ class CategoryController extends ResourceController
     public function destroy(Category $category): JsonResponse
     {
         $category->delete();
-        return $this->jsonResponse($category);
+        return $this->jsonResponse($category->viewFull());
     }
 
 

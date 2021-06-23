@@ -30,7 +30,7 @@ class ProductController extends ResourceController
     {
         $validated = Product::validate($request);
         $product = Product::create($validated);
-        return $this->jsonResponse($product, 201);
+        return $this->jsonResponse($product->viewFull(), 201);
     }
 
     /**
@@ -56,7 +56,7 @@ class ProductController extends ResourceController
     {
         $validated = Product::validate($request);
         $product->update($validated);
-        return $this->jsonResponse($product);
+        return $this->jsonResponse($product->viewFull());
     }
 
     /**
@@ -68,7 +68,7 @@ class ProductController extends ResourceController
     public function destroy(Product  $product): JsonResponse
     {
         $product->delete();
-        return $this->jsonResponse($product);
+        return $this->jsonResponse($product->viewFull());
     }
 
 
