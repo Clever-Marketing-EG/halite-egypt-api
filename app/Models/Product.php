@@ -27,8 +27,8 @@ class Product extends Model
         return $request->validate([
             'name' => 'required|string|min:3',
             'name_ar' => 'required|string|min:3',
-            'description' => 'required|json|min:3',
-            'description_ar' => 'required|json|min:3',
+            'description' => 'required',
+            'description_ar' => 'required',
             'image_url' => 'array|nullable',
             'image_url.*' => 'required|url',
             'category_id' => 'required|integer|exists:categories,id'
