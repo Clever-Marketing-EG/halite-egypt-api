@@ -11,11 +11,11 @@ class ProductController extends ResourceController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function index(): JsonResponse
     {
-        $products = trans('products');
+        $products = Product::all();
         return $this->jsonResponse($products);
     }
 
@@ -23,8 +23,8 @@ class ProductController extends ResourceController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
@@ -36,32 +36,21 @@ class ProductController extends ResourceController
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return JsonResponse
      */
     public function show(Product $product): JsonResponse
     {
-        $product = $product->loadLocale();
         return $this->jsonResponse($product);
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function showFull(Product $product): JsonResponse
-    {
-        return $this->jsonResponse($product);
-    }
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Product $product
+     * @return JsonResponse
      */
     public function update(Request $request, Product  $product): JsonResponse
     {
@@ -73,12 +62,36 @@ class ProductController extends ResourceController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @return JsonResponse
      */
     public function destroy(Product  $product): JsonResponse
     {
         $product->delete();
         return $this->jsonResponse($product);
+    }
+
+
+    /**
+     * Full index for the dashboard
+     *
+     * @return JsonResponse
+     */
+    public function indexFull(): JsonResponse
+    {
+        $products = Product::allFull();
+        return $this->jsonResponse($products);
+    }
+
+
+    /**
+     * View full info for the dashboard
+     *
+     * @param Product $product
+     * @return JsonResponse
+     */
+    public function showFull(Product $product): JsonResponse
+    {
+        return $this->jsonResponse($product->viewFull());
     }
 }
