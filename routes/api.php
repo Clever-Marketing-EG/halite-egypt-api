@@ -28,6 +28,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::apiResource( 'categories', CategoryController::class );
+Route::get('dashboard/categories',[CategoryController::class, 'indexFull']);
 Route::get('dashboard/categories/{category}',[CategoryController::class, 'showFull']);
 
 
