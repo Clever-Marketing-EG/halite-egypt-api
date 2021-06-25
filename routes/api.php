@@ -49,6 +49,7 @@ Route::get('dashboard/products/{product}',[ProductController::class, 'showFull']
 |--------------------------------------------------------------------------
 */
 Route::post('/mails/contact-us', [MailController::class, 'contactUs']);
+Route::post('/mails/product-inquiry', [MailController::class, 'product']);
 
 
 
