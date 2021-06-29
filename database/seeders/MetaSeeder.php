@@ -191,8 +191,39 @@ class MetaSeeder extends Seeder
                 'page' => 'home'
             ],
         );
+        $infoData = array(
+            [
+                'name' => 'info_header',
+                'content_en' => 'Header !',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'info'
+            ],
 
-        $data = array_merge($homeData);
+            [
+                'name' => 'info_content',
+                'content_en' => 'Content !',
+                'content_ar' => 'محتوى',
+                'type' => 'text',
+                'page' => 'info'
+            ],
+            [
+                'name' => 'info_image_1',
+                'content_en' => 'https://koyuncusalt.com/images/urun/urunk-55a51239.jpg',
+                'content_ar' => 'https://koyuncusalt.com/images/urun/urunk-55a51239.jpg',
+                'type' => 'image',
+                'page' => 'info'
+            ],
+            [
+                'name' => 'info_image_2',
+                'content_en' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfgt0ZmYiXPSWGXl0ElGXei3iUVgVYpkKs2A&usqp=CAU',
+                'content_ar' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfgt0ZmYiXPSWGXl0ElGXei3iUVgVYpkKs2A&usqp=CAU',
+                'type' => 'image',
+                'page' => 'info'
+            ],
+        );
+
+        $data = array_merge($homeData, $infoData);
 
         DB::table('metas')->insert($data);
     }
