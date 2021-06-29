@@ -29,7 +29,7 @@ class Product extends LocalizableModel
             'name_ar' => 'required|string|min:3',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'image_url' => 'array|nullable',
+            'image_url' => 'required|array|min:1',
             'image_url.*' => 'required|url',
             'category_id' => 'required|integer|exists:categories,id'
         ]);

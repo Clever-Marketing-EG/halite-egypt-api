@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name_ar');
             $table->text('description_en');
             $table->text('description_ar');
-            $table->string('image_url');
+            $table->text('image_url');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
 
         });
