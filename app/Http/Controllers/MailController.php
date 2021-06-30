@@ -18,7 +18,8 @@ class MailController extends Controller
             'subject' => 'required|string|min:3',
             'message' => 'required|string|min:3'
        ]);
-       Mail::to(MAIL_RECIEVER)->send(new ContactMail($data));
+
+       Mail::to(MAIL_RECEIVER)->send(new ContactMail($data));
        return $this->jsonResponse(trans('utils.contact-us-thanks'));
 
    }
@@ -35,7 +36,7 @@ class MailController extends Controller
          'port' => 'string|min:3',
          'question' => 'string|min:3'
     ]);
-    Mail::to(MAIL_RECIEVER)->send(new ProductMail($data));
+    Mail::to(MAIL_RECEIVER)->send(new ProductMail($data));
     return $this->jsonResponse(trans('utils.contact-us-thanks'));
 
 }
