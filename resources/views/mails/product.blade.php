@@ -130,11 +130,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="left"
-                                    style="font-size:0px;padding:0px 25px;word-break:break-word;">
+                                <td align="center"
+                                    style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                     <div
-                                        style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                        Quantity: {{ $data['quantity'] }}
+                                        style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
+                                        Quantity (per ton): {{ $data['quantity'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -152,7 +152,7 @@
                                     style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                     <div
                                         style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                        Port: {{ $data['port'] }}
+                                        Port of Discharge(POD): {{ $data['port'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -161,7 +161,7 @@
                                     style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                     <div
                                         style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                        Question: {{ $data['question'] }}
+                                        How did you hear about us?: {{ $data['question'] }}
                                     </div>
                                 </td>
                             </tr>
