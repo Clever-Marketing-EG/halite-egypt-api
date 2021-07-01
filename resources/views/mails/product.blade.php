@@ -134,7 +134,7 @@
                                     style="font-size:0px;padding:0px 25px;word-break:break-word;">
                                     <div
                                         style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                        Subject: {{ $data['website'] }}
+                                        Quantity: {{ $data['quantity'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -143,7 +143,7 @@
                                     style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                     <div
                                         style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                        {{ $data['quantity'] }}
+                                        Packing: {{ $data['packing'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -152,7 +152,7 @@
                                     style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                     <div
                                         style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                        {{ $data['packing'] }}
+                                        Port: {{ $data['port'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -161,16 +161,7 @@
                                     style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                     <div
                                         style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                        {{ $data['port'] }}
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center"
-                                    style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
-                                    <div
-                                        style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                        {{ $data['question'] }}
+                                        Question: {{ $data['question'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -179,7 +170,7 @@
                                     style="font-size:0px;padding:0px 25px;word-break:break-word;">
                                     <div
                                         style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                        From: {{ $data['name'] }}
+                                        Name: {{ $data['name'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -197,7 +188,7 @@
                                     style="font-size:0px;padding:0px 25px;word-break:break-word;">
                                     <div
                                         style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                        From: {{ $data['phone'] }}
+                                        Phone: {{ $data['phone'] }}
                                     </div>
                                 </td>
                             </tr>
@@ -206,7 +197,16 @@
                                     style="font-size:0px;padding:0px 25px;word-break:break-word;">
                                     <div
                                         style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                        From: {{ $data['address'] }}
+                                        Address: {{ $data['address'] }}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"
+                                    style="font-size:0px;padding:0px 25px;word-break:break-word;">
+                                    <div
+                                        style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
+                                        Company website: {{ $data['website'] }}
                                     </div>
                                 </td>
                             </tr>
