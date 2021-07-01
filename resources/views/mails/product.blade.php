@@ -152,7 +152,7 @@
                                     style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                     <div
                                         style="color:#000000;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
-                                        Port of Discharge(POD): {{ $data['port'] }}
+                                        Port of Discharge (POD): {{ $data['port'] }}
                                     </div>
                                 </td>
                             </tr>
