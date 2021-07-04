@@ -31,7 +31,7 @@ class Product extends LocalizableModel
             'description_ar' => 'required',
             'image_url' => 'required|array|min:1',
             'image_url.*' => 'required|url',
-            // 'category_id' => 'required|integer|exists:categories,id'
+            'category_id' => 'required|integer|exists:categories,id'
         ]);
     }
 }
